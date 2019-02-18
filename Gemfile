@@ -6,7 +6,9 @@ ruby '2.4.1'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.2'
 # Use mysql as the database for Active Record
-gem 'mysql2', '>= 0.4.4', '< 0.6.0'
+
+#Herokuへのデプロイ
+gem 'mysql2', '>= 0.4.4', '< 0.6.0',group: :development
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
@@ -33,8 +35,12 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
  gem 'bootstrap-sass'
+ gem 'carrierwave'
+ # 課題用に下記１行追加
+ gem 'mini_magick'
  gem "jquery-rails"
  gem 'bcrypt'
+
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
@@ -56,6 +62,11 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
+
+#Herokuへのデプロイ
+group :production do
+    gem 'pg'
+  end
 
 group :test do
   # Adds support for Capybara system testing and selenium driver
